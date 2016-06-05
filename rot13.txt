@@ -1,5 +1,5 @@
-//Made by Angelo Yan
-//18/04/14
+//Made by Kelvin Lau
+//18/04/16
 
 //function that reads in a character,
 //takes in a character and, if it is a letter,
