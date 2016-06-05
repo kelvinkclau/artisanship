@@ -1,0 +1,51 @@
+//Made by Angelo Yan
+//18/04/14
+
+//function that reads in a character,
+//takes in a character and, if it is a letter,
+//returns the letter which is 13 places later
+//the in the alphabet (wrapping around from z to a if required).
+//If the input character is not a letter it is returned unchanged.
+//The output letter should be uppercase if the input letter is
+//uppercase, and lowercase if the input letter is lowercase.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+
+#define LETTERS 26
+
+char encode (char letter);
+void testEncode (void);
+
+int main(int argc, char *argv[]){
+    testEncode();
+    return EXIT_SUCCESS;
+}
+
+char encode (char letter){
+    if ((letter >= 'a' && letter <= 'm')
+        || (letter >= 'A' && letter <= 'M')){
+        letter = letter + 13;
+    } else if (letter >= 'n' && letter <= 'z'){
+        letter = letter + 13 - LETTERS;
+    } else if (letter >= 'N' && letter <= 'Z'){
+        letter = letter + 13 - LETTERS;
+    }
+    return letter;
+}
+
+void testEncode (void){
+    assert (encode ('h') == 'u');
+    assert (encode ('u') == 'h');
+    assert (encode ('m') == 'z');
+    assert (encode ('p') == 'c');
+    assert (encode ('t') == 'g');
+    assert (encode ('y') == 'l');
+    assert (encode (' ') == ' ');
+    assert (encode ('!') == '!');
+    assert (encode ('@') == '@');
+    assert (encode ('^') == '^');
+    printf("All tests passed\n");
+    printf("You are awesome!");
+}
